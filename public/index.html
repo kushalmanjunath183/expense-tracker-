@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f5f1">
+  <title>PocketWise | Your money, in focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen" hidden>
+    <form id="auth-form" class="auth-panel">
+      <div class="brand-mark">P<span>W</span></div>
+      <p class="eyebrow">A clearer view of your money</p>
+      <h1 id="auth-title">Welcome back</h1>
+      <p class="muted" id="auth-subtitle">Sign in to your PocketWise account.</p>
+      <label id="name-field" hidden>Your name<input name="name" autocomplete="name" maxlength="80"></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" minlength="10" required></label>
+      <button class="button button-primary full-width" id="auth-submit">Sign in</button>
+      <p class="auth-switch"><span id="auth-switch-text">New to PocketWise?</span> <button type="button" class="text-button" id="auth-switch">Create an account</button></p>
+    </form>
+  </div>
+
+  <div class="app-shell" id="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark">P<span>W</span></span><span>PocketWise</span></a>
+      <div class="workspace-label">YOUR FINANCES</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-item" data-page="transactions"><span class="nav-icon">↔</span>Transactions</button>
+        <button class="nav-item" data-page="budgets"><span class="nav-icon">◷</span>Budgets</button>
+        <button class="nav-item" data-page="goals"><span class="nav-icon">◎</span>Savings goals</button>
+        <button class="nav-item" data-page="recurring"><span class="nav-icon">⟳</span>Recurring</button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">▥</span>Reports</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-note"><span class="side-note-icon">✳</span><div><strong>Small steps add up.</strong><p>Your finances, made a little clearer every day.</p></div></div>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>Settings</button>
+        <div class="profile-row"><div class="avatar" id="avatar">P</div><div class="profile-copy"><strong id="user-name">Account</strong><span>Personal account</span></div><button id="logout-button" class="icon-button" aria-label="Sign out" title="Sign out">↗</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-divider">/</span><strong id="page-crumb">Overview</strong></div>
+        <div class="topbar-actions"><label class="month-picker"><span>Period</span><input id="global-month" type="month"></label><button class="button button-primary top-add" id="quick-add">＋ <span>Add transaction</span></button></div>
+      </header>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <section id="page-dashboard" class="page-view"></section>
+      <section id="page-transactions" class="page-view" hidden></section>
+      <section id="page-budgets" class="page-view" hidden></section>
+      <section id="page-goals" class="page-view" hidden></section>
+      <section id="page-recurring" class="page-view" hidden></section>
+      <section id="page-reports" class="page-view" hidden></section>
+      <section id="page-settings" class="page-view" hidden></section>
+    </main>
+  </div>
+  <dialog id="form-dialog" class="dialog"><form id="dialog-form" method="dialog"></form></dialog>
+</body>
+</html>
